@@ -64,7 +64,7 @@ const HotCollections = () => {
     const t = setTimeout(() => {
       $el.owlCarousel({
         loop: true,
-        margin: 24,
+        margin: 10,
         nav: true,
         dots: false,
         responsive: {
@@ -98,64 +98,89 @@ const HotCollections = () => {
           </div>
 
           <div className="col-lg-12">
-            <div className={`hot-collections-owl ${loading ? "" : "owl-carousel"}`}>
+            <div
+              className={`hot-collections-owl ${loading ? "" : "owl-carousel"}`}
+            >
               {loading ? (
-  <div className="skeleton-strip">
-    {Array.from({ length: 4 }).map((_, i) => (
-      <div className="skeleton-slide" key={`sk-${i}`}>
-        <div className="nft_coll">
-          <div className="nft_wrap">
-            <Skeleton width="100%" height="200px" borderRadius="12px" />
-          </div>
+                <div className="skeleton-strip">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div className="skeleton-slide" key={`sk-${i}`}>
+                      <div className="nft_coll">
+                        <div className="nft_wrap">
+                          <Skeleton
+                            width="100%"
+                            height="200px"
+                            borderRadius="12px"
+                          />
+                        </div>
 
-          <div className="nft_coll_pp">
-            <Skeleton width="44px" height="44px" borderRadius="50%" />
-          </div>
+                        <div className="nft_coll_pp">
+                          <Skeleton
+                            width="44px"
+                            height="44px"
+                            borderRadius="50%"
+                          />
+                        </div>
 
-          <div className="nft_coll_info">
-            <Skeleton width="80%" height="16px" borderRadius="8px" />
-            <br />
-            <Skeleton width="50%" height="16px" borderRadius="8px" />
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-) : (
-  collections.map((collection, idx) => (
-    <div key={collection.id ?? collection.code ?? collection.title ?? idx}>
-      <div className="nft_coll">
-        <div className="nft_wrap">
-          <Link to="/item-details">
-            <img
-              src={collection.nftImage || nftImage}
-              className="img-fluid"
-              alt=""
-            />
-          </Link>
-        </div>
+                        <div className="nft_coll_info">
+                          <Skeleton
+                            width="80%"
+                            height="16px"
+                            borderRadius="8px"
+                          />
+                          <br />
+                          <Skeleton
+                            width="50%"
+                            height="16px"
+                            borderRadius="8px"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                collections.map((collection, idx) => (
+                  <div
+                    key={
+                      collection.id ??
+                      collection.code ??
+                      collection.title ??
+                      idx
+                    }
+                  >
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to="/item-details">
+                          <img
+                            src={collection.nftImage || nftImage}
+                            className="img-fluid"
+                            alt=""
+                          />
+                        </Link>
+                      </div>
 
-        <div className="nft_coll_pp">
-          <Link to="/author">
-            <img
-              className="pp-coll"
-              src={collection.authorImage || AuthorImage}
-              alt=""
-            />
-          </Link>
-          <i className="fa fa-check"></i>
-        </div>
+                      <div className="nft_coll_pp">
+                        <Link to="/author">
+                          <img
+                            className="pp-coll"
+                            src={collection.authorImage || AuthorImage}
+                            alt=""
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
 
-        <div className="nft_coll_info">
-          <Link to="/explore">
-            <h4>{collection.title}</h4>
-          </Link>
-          <span>{collection.code}</span>
-        </div>
-      </div>
-    </div>
-  ))
-)}
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{collection.title}</h4>
+                        </Link>
+                        <span>{collection.code}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
