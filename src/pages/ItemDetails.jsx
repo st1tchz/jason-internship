@@ -152,7 +152,7 @@ const ItemDetails = () => {
                           <h6>Owner</h6>
                           <div className="item_author">
                             <div className="author_list_pp">
-                              <Link to={`/author/${item?.authorId}`}>
+                              <Link to={`/author/${item?.ownerId}`}>
                                 <img
                                   className="lazy"
                                   src={
@@ -166,7 +166,7 @@ const ItemDetails = () => {
                               </Link>
                             </div>
                             <div className="author_list_info">
-                              <Link to={`/author/${item?.authorId}`}>
+                              <Link to={`/author/${item?.ownerId}`}>
                                 {item?.ownerName ??
                                   item?.authorName ??
                                   "Unknown"}
@@ -182,7 +182,7 @@ const ItemDetails = () => {
                           <h6>Creator</h6>
                           <div className="item_author">
                             <div className="author_list_pp">
-                              <Link to={`/author/${item?.authorId}`}>
+                              <Link to={`/author/${item?.creatorId}`}>
                                 <img
                                   className="lazy"
                                   src={
@@ -196,7 +196,7 @@ const ItemDetails = () => {
                               </Link>
                             </div>
                             <div className="author_list_info">
-                              <Link to={`/author/${item?.authorId}`}>
+                              <Link to={`/author/${item?.creatorId}`}>
                                 {item?.creatorName ??
                                   item?.authorName ??
                                   "Unknown"}
